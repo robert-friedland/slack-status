@@ -42,7 +42,7 @@ app.post('/', (req, res, next) => {
   });
   res.status(200);
 //   res.send('🤘');
-  res.send(new Date(end).getTime());
+  res.send('end: ' + end + '; ts: ' + new Date(end).getTime());
 });
 
 app.get('/', (req, res, next) => {
