@@ -24,7 +24,7 @@ app.post('/', (req, res, next) => {
   const start = moment(req.body.start, dateFormat);
   const end = moment(req.body.end, dateFormat);
   // check for DND
-  if (status.includes(dndToken)) {
+  if (1 == 1){//status.includes(dndToken)) {
     slack.dnd.setSnooze({
       token: process.env.SLACK_TOKEN,
       num_minutes: end.diff(start, 'minutes')
@@ -32,17 +32,17 @@ app.post('/', (req, res, next) => {
     status = status.replace(dndToken, '');
   }
   // set status
-  slack.users.profile.set({
-    token: process.env.SLACK_TOKEN,
-    profile: JSON.stringify({
-      "status_text": `${status} from ${start.format('h:mm')} to ${end.format('h:mm a')} ${process.env.TIME_ZONE}`,
-      "status_emoji": ":telephone_receiver:",
-      "status_expiration": 600//end.format("X")
-    })
-  });
+//   slack.users.profile.set({
+//     token: process.env.SLACK_TOKEN,
+//     profile: JSON.stringify({
+//       "status_text": `${status} from ${start.format('h:mm')} to ${end.format('h:mm a')} ${process.env.TIME_ZONE}`,
+//       "status_emoji": ":telephone_receiver:",
+//       "status_expiration": 600//end.format("X")
+//     })
+//   });
   res.status(200);
-//   res.send('🤘');
-  res.send(end.format("X"));
+  res.send('🤘');
+//   res.send(end.format("X"));
 });
 
 app.get('/', (req, res, next) => {
