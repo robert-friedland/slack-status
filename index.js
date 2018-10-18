@@ -42,7 +42,7 @@ app.post('/', (req, res, next) => {
   });
   res.status(200);
 //   res.send('🤘');
-  res.send(bigint(end)/1000);
+  res.send(end.unix());
 });
 
 app.get('/', (req, res, next) => {
