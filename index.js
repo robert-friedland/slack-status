@@ -41,8 +41,8 @@ app.post('/', (req, res, next) => {
     })
   });
   res.status(200);
-  res.send('🤘');
-//   res.send(end.unix());
+//   res.send('🤘');
+  res.send(end.format("X"));
 });
 
 app.get('/', (req, res, next) => {
