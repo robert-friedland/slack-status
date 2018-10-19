@@ -26,7 +26,7 @@ app.post('/', (req, res, next) => {
   // check for DND
   if (1 == 1){//status.includes(dndToken)) {
     slack.dnd.setSnooze({
-      token: process.env.SLACK_TOKEN,
+      token: req.body.slack_token,//process.env.SLACK_TOKEN,
       num_minutes: end.diff(start, 'minutes')
     });
     status = status.replace(dndToken, '');
@@ -69,7 +69,8 @@ app.get('/', (req, res, next) => {
   "title":"<<<{{Title}}>>>",
   "start":"{{Starts}}",
   "end":"{{Ends}}",
-  "token": "YOUR_SECRET_TOKEN"
+  "token": "YOUR_SECRET_TOKEN",
+  "slack_token": "YOUR_SLACK_TOKEN"
 }</pre>
       </body>
     </html>
